@@ -34,7 +34,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({ tabs, activeTab, setActiv
   const activeTabTitle = tabs.find(tab => tab.id === activeTab)?.title || 'Select Tab';
 
   return (
-    <div className="flex-1 overflow-x-auto relative">
+    <div className="flex-1 overflow-x-auto">
       {/* Desktop view */}
       <div className="hidden md:flex">
         {tabs.map((tab) => (
@@ -66,13 +66,13 @@ const TabNavigation: React.FC<TabNavigationProps> = ({ tabs, activeTab, setActiv
       <div className="md:hidden relative" ref={dropdownRef}>
         <button
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          className="flex items-center justify-between w-full px-4 py-2 bg-white border-b"
+          className="flex items-center justify-between w-full px-4 py-2 bg-white"
         >
           <span>{activeTabTitle}</span>
           <ChevronDown size={20} className={`transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
         </button>
         {isDropdownOpen && (
-          <div className="absolute left-0 right-0 top-full mt-1 bg-white border shadow-lg z-[100] max-h-60 overflow-y-auto">
+          <div className="fixed inset-x-0 top-[52px] bg-white border shadow-lg z-50 max-h-[calc(100vh-52px)] overflow-y-auto">
             {tabs.map((tab) => (
               <div
                 key={tab.id}

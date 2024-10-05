@@ -67,7 +67,7 @@ function AppContent() {
     <div className="flex h-screen bg-gray-100">
       <Sidebar addTab={addTab} isOpen={isSidebarOpen} ref={sidebarRef} />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <div className="bg-white border-b flex items-center z-10">
+        <div className="bg-white border-b flex items-center z-10 relative">
           <button
             ref={menuButtonRef}
             onClick={toggleSidebar}
